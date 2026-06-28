@@ -69,7 +69,7 @@
             justify-content: center; 
             width: 100%; 
             overflow: hidden;
-            padding: 16px; /* 余白を追加して浮かせる */
+            padding: 16px;
         }
         
         /* チャットエリア全体のグラスモーフィズム */
@@ -238,7 +238,7 @@
         
         .indicator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
         .indicator-card { background: rgba(255,255,255,0.8); border: 1px solid #ffffff; border-radius: 12px; padding: 16px; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.02); display:flex; flex-direction: column; align-items: center; text-align: center;}
-        .ind-title { font-size: 0.75rem; color: var(--text-muted); font-weight: 800; margin-bottom: 8px; line-height: 1.2;}
+        .ind-title { font-size: 0.75rem; color: var(--text-muted); font-weight: 800; margin-bottom: 8px; line-height: 1.4;}
         .ind-value { font-size: 1.6rem; font-weight: 900; color: var(--text-main); margin-bottom: 8px;}
         .ind-eval { font-size: 0.8rem; font-weight: 800; padding: 4px 10px; border-radius: 6px; display: inline-block; width: 100%;}
         
@@ -297,7 +297,7 @@
     </svg>
 </div>
                     <div class="ai-bubble">
-                        こんにちは！詳細な項目から、現在の「家計の健康状態（筋肉質度）」を正確に診断します。<br><br>
+                        こんにちは！詳細な項目から、現在のお金を扱う<strong>「4つの力」</strong>を正確に診断します。<br><br>
                         まずは、<strong>「基本情報」「収入」「現在の資産・負債」</strong>について教えてください。<br>
                         <span style="font-size: 0.8rem; color:var(--text-muted);">※金額の単位はすべて<strong>「万円」</strong>でご入力ください。<br>（例：25万円の場合は「25」、1万5千円の場合は「1.5」）</span>
                         
@@ -692,20 +692,20 @@
             let typeName = "", msg = "", badgeColor = "";
 
             if (totalScore >= 4.5) {
-                typeName = "🏅 アスリート級！超・筋肉質家計"; badgeColor = "linear-gradient(135deg, #059669 0%, #047857 100%)";
-                msg = "無駄な脂肪（支出）がなく、お金が力強く働いている最高レベルの状態です！今のペースを維持できれば完璧です。さらなる高みを目指して資産の最適化を図りましょう。";
+                typeName = "🏅 殿堂入り！4つの力が備わった最強家計"; badgeColor = "linear-gradient(135deg, #059669 0%, #047857 100%)";
+                msg = "無駄な支出がなく、「残す力」と「働かせる力」が最高レベルで発揮されています！今のペースを維持できれば完璧です。さらなる高みを目指して資産の最適化を図りましょう。";
             } else if (totalScore >= 3.5) {
-                typeName = "💪 引き締まった細マッチョ家計"; badgeColor = "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)";
-                msg = "日々の節制ができており、とても健康で引き締まった良い家計状態です。素晴らしいですね！あとは『お金の筋トレ（運用）』を少し強化すると、さらに盤石になります。";
+                typeName = "💪 基礎力高め！引き締まった優良家計"; badgeColor = "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)";
+                msg = "日々の節制ができており、お金を「残す力」がしっかり備わった良い家計状態です。素晴らしいですね！あとはお金を「働かせる力（運用）」を少し強化すると、さらに盤石になります。";
             } else if (totalScore >= 2.5) {
-                typeName = "🏃 健康的な標準体型家計"; badgeColor = "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)";
-                msg = "大きな問題はありませんが、将来に向けて少し体力をつけていきたい状態です。まずは無理のない範囲で、基礎代謝を上げる（固定費を下げる）ところから始めましょう！";
+                typeName = "🏃 伸びしろ十分！標準的な家計"; badgeColor = "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)";
+                msg = "大きな問題はありませんが、将来に向けてさらに「育てる力」を伸ばしていきたい状態です。まずは無理のない範囲で、固定費を下げて「残す力」を高めるところから始めましょう！";
             } else if (totalScore >= 1.5) {
-                typeName = "🛋️ 運動不足のぽっちゃり家計"; badgeColor = "linear-gradient(135deg, #ea580c 0%, #c2410c 100%)";
-                msg = "少しずつ見えない脂肪（ラテマネーやサブスク等）が蓄積してしまっている状態です。少しずつ家計のダイエットが必要です！まずは現状の支出を把握して、一緒に整理していきましょう。";
+                typeName = "🛋️ 要注意！力が眠っている家計"; badgeColor = "linear-gradient(135deg, #ea580c 0%, #c2410c 100%)";
+                msg = "少しずつ無駄な支出（ラテマネーやサブスク等）が蓄積し、お金を「残す力」が低下している状態です。少しずつ家計の改善が必要です！まずは現状の支出を把握し、整理していきましょう。";
             } else {
-                typeName = "⚠️ メタボ警報！要ダイエット家計"; badgeColor = "linear-gradient(135deg, #ef4444 0%, #b91c1c 100%)";
-                msg = "収入に対して支出や負債が多く、早急な体質改善（家計の見直し）が必要な状態です。まずは止血（赤字解消）と、防衛資金（現金）を貯める基礎トレーニングから伴走します！";
+                typeName = "⚠️ 赤信号！基礎力改善が急務な家計"; badgeColor = "linear-gradient(135deg, #ef4444 0%, #b91c1c 100%)";
+                msg = "収入に対して支出や負債が多く、早急な家計の見直しが必要な状態です。まずは止血（赤字解消）して「残す力」を取り戻し、防衛資金（現金）を貯める基礎固めから伴走します！";
             }
 
             let otherItemsHtml = "";
@@ -787,22 +787,22 @@
                         
                         <div class="indicator-grid">
                             <div class="indicator-card">
-                                <span class="ind-title">① 生涯のお金貯蓄率</span>
+                                <span class="ind-title">① お金を「残す力」<br><span style="font-size:0.65rem; font-weight:normal;">(生涯収入から残せた割合)</span></span>
                                 <span class="ind-value"><span class="count-up" data-val="${Math.max(0, conversionRate).toFixed(1)}">0.0</span> <span style="font-size:0.8rem;">%</span></span>
                                 <span class="ind-eval ${class1}">${text1}</span>
                             </div>
                             <div class="indicator-card">
-                                <span class="ind-title">② 同世代比較・資産達成度</span>
+                                <span class="ind-title">② 資産を「育てる力」<br><span style="font-size:0.65rem; font-weight:normal;">(年齢・収入の標準との比較)</span></span>
                                 <span class="ind-value"><span class="count-up" data-val="${Math.max(0, achievementRate).toFixed(1)}">0.0</span> <span style="font-size:0.8rem;">%</span></span>
                                 <span class="ind-eval ${class2}">${text2}</span>
                             </div>
                             <div class="indicator-card">
-                                <span class="ind-title">③ お金の筋トレ度</span>
+                                <span class="ind-title">③ お金を「働かせる力」<br><span style="font-size:0.65rem; font-weight:normal;">(余剰資金の投資稼働率)</span></span>
                                 <span class="ind-value"><span class="count-up" data-val="${Math.max(0, efficiencyRate).toFixed(1)}">0.0</span> <span style="font-size:0.8rem;">%</span></span>
                                 <span class="ind-eval ${class3}">${text3}</span>
                             </div>
                             <div class="indicator-card">
-                                <span class="ind-title">④ 将来の自由度スコア</span>
+                                <span class="ind-title">④ 労働から「自由になる力」<br><span style="font-size:0.65rem; font-weight:normal;">(早期リタイア達成率)</span></span>
                                 <span class="ind-value"><span class="count-up" data-val="${Math.max(0, fireProgressRate).toFixed(1)}">0.0</span> <span style="font-size:0.8rem;">%</span></span>
                                 <span class="ind-eval ${class4}">${text4}</span>
                             </div>
